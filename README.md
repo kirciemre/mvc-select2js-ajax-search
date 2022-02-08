@@ -4,7 +4,7 @@ An example of select2js AJAX Loading Data select box with MVC Design Pattern.
 
 It is useful when you have huge list to load in select box. It is the best solution to get rid of long page load problems.
 
-##Don't Forget
+## Don't Forget!
 
 Don't forget to load;
 
