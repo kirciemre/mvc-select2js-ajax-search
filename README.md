@@ -18,4 +18,4 @@ Don't forget to load;
 <link href="path/to/select2.min.css" rel="stylesheet" />
 <script src="path/to/select2.min.js"></script>
 
-
+More information please visit https://select2.org/getting-started/installation
