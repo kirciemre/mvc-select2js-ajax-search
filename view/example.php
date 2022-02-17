@@ -21,12 +21,16 @@
             return {
 	                results: $.map(data, function (item) {
 	                    return {
-	                        text: item.personel_ad + " " + item.personel_soyad,
-	                        id: item.personel_tc
+	                        text: item['person'].personel_ad + " " + item['person'].personel_soyad,
+	                        id: item['person'].personel_tc
 	                    }
 	                })
             	};
-        	}
+        	},
+          success : function(data)
+	        {   
+	            csrfHash = data['csrf'].csrfHash;
+	        }  
          },
      });
    });
