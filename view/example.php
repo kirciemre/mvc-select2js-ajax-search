@@ -3,6 +3,7 @@
 </div>
 
 <script type="text/javascript">
+    var csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
 	  $(document).ready(function(){
       $("#searchAjax").select2({
       	minimumInputLength: 3,
@@ -14,7 +15,7 @@
            data: function (params) {
               return {
                 searchTerm: params.term, // search term add CSRF Token
-                '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
+                '<?php echo $this->security->get_csrf_token_name(); ?>': csrfHash
               };
            },
            processResults: function (data) {
