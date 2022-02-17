@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  <select id="searchAjax" class='form-control col-lg-5 itemSearch' type='text' placeholder='select item' /></select>
+  <select id="searchAjax" class='form-control col-lg-5 itemSearch'></select>
 </div>
 
 <script type="text/javascript">
@@ -20,10 +20,10 @@
            },
            processResults: function (data) {
             return {
-	                results: $.map(data, function (item) {
+	                results: $.map(data['person'], function (item) {
 	                    return {
-	                        text: item['person'].personel_ad + " " + item['person'].personel_soyad,
-	                        id: item['person'].personel_tc
+	                        text: item.personel_ad + " " + item.personel_soyad,
+	                        id: item.personel_tc
 	                    }
 	                })
             	};
