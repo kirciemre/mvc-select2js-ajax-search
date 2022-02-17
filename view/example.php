@@ -3,7 +3,7 @@
 </div>
 
 <script type="text/javascript">
-    var csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
+    var csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>'; //global var
 	  $(document).ready(function(){
       $("#searchAjax").select2({
       	minimumInputLength: 3,
