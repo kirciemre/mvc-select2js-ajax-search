@@ -34,7 +34,6 @@
 	                })
             	};
         	},
-        	escapeMarkup: function (text) { return text; },
 
         	success : function(data)
 	        {   
