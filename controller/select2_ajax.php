@@ -8,22 +8,21 @@ class Allowance extends CI_Controller
 		$this->load->model('Ajax_Model');
 	}
 
-
-public function ajax_person()
+	public function ajax_person()
 	{	
 		if($this->input->post()){
+			$data['person']=$this->Settings_Model->find_person($this->input->post("searchTerm"));
 			$data['csrf'] = array(
                 'csrfHash' => $this->security->get_csrf_hash()
                 );
-
-			$data['person']=$this->Ajax_Model->find_person($this->input->post("searchTerm"));
 			if (count($data['person'])>0) {
 				header('Content-Type: application/json');
 				header('Pragma: no-cache');
 				header('Cache-Control: no-store, no-cache');
 				echo json_encode($data);
+
 			}
-			else {
+			else{
 				echo json_encode($data);
 			}
 		}	

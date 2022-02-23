@@ -2,37 +2,48 @@
   <select id="searchAjax" class='form-control col-lg-5 itemSearch'></select>
 </div>
 
+
 <script type="text/javascript">
-    var csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>'; //global var
+    var csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
+
 	  $(document).ready(function(){
       $("#searchAjax").select2({
+      	placeholder: "Personel ara",
       	minimumInputLength: 3,
          ajax: { 
-           url: '<?php echo base_url(); ?>turne/ajax_person',
+           url: '<?php echo base_url(); ?>settings/ajax_person',
            type: "post",
            dataType: 'json',
            delay: 250,
+
            data: function (params) {
               return {
                 searchTerm: params.term, // search term add CSRF Token
                 '<?php echo $this->security->get_csrf_token_name(); ?>': csrfHash
               };
            },
-           processResults: function (data) {
+
+            processResults: function (data) {
             return {
 	                results: $.map(data['person'], function (item) {
 	                    return {
-	                        text: item.personel_ad + " " + item.personel_soyad,
-	                        id: item.personel_tc
+	                        text: "<img style='width: 50px;' class='flag' src='"+ getBaseUrl() + item.path + "'/> " + item.ad + ' ' + item.soyad,
+	                        id: item.tckn,
+	                        title: 'Personel'
 	                    }
 	                })
             	};
         	},
-          success : function(data)
+        	escapeMarkup: function (text) { return text; },
+
+        	success : function(data)
 	        {   
 	            csrfHash = data['csrf'].csrfHash;
 	        }  
          },
+
+       
+	    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
      });
    });
 </script>
