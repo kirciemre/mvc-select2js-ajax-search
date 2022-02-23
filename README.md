@@ -4,6 +4,7 @@ An example of select2js AJAX Loading Data select box with MVC Design Pattern.
 
 It is useful when you have huge list to load in select box. It is the best solution to get rid of long page load problems.
 
+
 ## Don't Forget!
 
 Don't forget to load;
@@ -18,4 +19,11 @@ Don't forget to load;
 <link href="path/to/select2.min.css" rel="stylesheet" />
 <script src="path/to/select2.min.js"></script>
 
+  
+## Changelog
+  
+* Regenerative CSRF Protection added!
+* Show picture (img tag) in options added. (escapeMarkup function added) 
+
+  
 More information please visit https://select2.org/getting-started/installation
