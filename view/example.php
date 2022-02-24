@@ -27,9 +27,9 @@
             return {
 	                results: $.map(data['person'], function (item) {
 	                    return {
-	                        text: "<img style='width: 50px;' class='flag' src='"+ getBaseUrl() + item.path + "'/> " + item.ad + ' ' + item.soyad,
+                        text: item.path ? "<img style='width: 50px;' class='flag' src='"+ getBaseUrl() + item.path + "'/> "  + item.ad + ' ' + item.soyad 
+	                        : '<i style="font-size:15px;" class="mdi mdi-account"></i> ' + item.ad + ' ' + item.soyad,
 	                        id: item.tckn,
-	                        title: 'Personel'
 	                    }
 	                })
             	};
